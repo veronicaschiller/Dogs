@@ -1,10 +1,10 @@
-import react from 'react';
+import React from 'react';
 
-const userContext = react.createContext();
+export const userContext = React.createContext();
 
 export const UserStorege = ({ children }) => {
   return (
-    <userContext.Provider value={{ usuario: 'verônica' }}>
+    <userContext.Provider value={{ Usuario: 'verônica' }}>
       {children}
     </userContext.Provider>
   );

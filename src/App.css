@@ -5,7 +5,7 @@
 body {
   margin: 0px;
   color: #333;
-  --type-first: Helvetica, Arial, sans-serif;
+  --type-first: 'Montserrat', sans-serif;
   --type-second: 'Spectral', Georgia, serif;
   font-family: var(--type-first);
 }
@@ -32,7 +32,7 @@ img {
 
 button, input{
   display: block;
-font-size:1rem;
+font-size:3rem;
 font-family: var(--type-first);
 color: #333;
 }

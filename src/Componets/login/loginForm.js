@@ -1,53 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Input from '../forms/input';
-import Button from '../forms/button';
-import UseForm from '../../Hooks/useForm';
-import { TOKEN_POST, USER_GET } from '../../api';
-import react from 'react';
+import Input from '../forms/input'
+import Button from '../forms/button'
 
 const loginForm = () => {
-  const usename = UseForm();
-  const password = UseForm();
-  react.useEffect(() => {
-    const token = window.localStorage.getItem('token');
-    if(token) {
-      getUser(token);
-    }
-  }, [])
+  
 
-  async function getUser(token) {
-    const{ url, opition} = USER_GET(token)
-const response = await fetch(url, opition)
-const json = await response.json();
-console.log(json)
-  }
-
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-    if (usename.validate() && password.validate()) {
-      const { url, opition } = TOKEN_POST({
-        usename: usename.value,
-        password: password.value,
-      });
-      const response = await fetch(url, opition );
-      const json = await response.json();
-      Window.localStorage.setItem( 'token' , json.token );
-      getUser(json.token)
-
-        
-    }
+    fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token' , { 
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(),
+    }).then((response) => {
+      console.log(response);
+      return response;
+    }).then((json) => {
+      console.log(json);
+    })
   }
-
   return (
     <section>
-      <h1>login</h1>
-      <form action="" onsubmit={handleSubmit}>
-        <Input label="usuario" type="text" name="usuario" {...usename} />
-        <Input label="senha" type="password" name="password" {...password} />
+      <h1>Login</h1>
+      <form action="" onSubmit={handleSubmit}>
+        <Input label="Usuario" type="text" name="username"/>
+        <Input label="Password" type="password" name="password"/>
+       
         <Button>entrar</Button>
       </form>
-      <Link to="login/criar">cadastro</Link>
+      <Button><Link to='/login/criar'>cadastro</Link></Button>
     </section>
   );
 };

@@ -1,18 +1,18 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import LoginPasswordReset from './loginPasswordReset';
-import LoginPasswordLost from './loginPasswordLost';
-import LoginCreat from './loginCreat';
+import LoginCreate from './loginCreate';
 import LoginForm from './loginForm';
+import LoginPasswordLost from './LoginpasswordLost';
+import LoginPasswordReset from './LoginPasswordReset';
 
 const login = () => {
   return (
     <div>
       <Routes>
-        <Route to="/" element={<LoginForm />} />
-        <Route path="criar" element={<LoginCreat />} />
-        <Route path="perdeu" element={<LoginPasswordLost />} />
-        <Route path="resetar" element={<LoginPasswordReset />} />
+        <Route path="/" element={<LoginForm/>} />
+        <Route path="criar" elemente={<LoginCreate />} />
+        <Route path="Esqueceu" elemente={<LoginPasswordLost />} />
+        <Route path="reset" elemente={<LoginPasswordReset />} />
       </Routes>
     </div>
   );
