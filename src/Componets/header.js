@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Styles from './header.module.css';
 import { ReactComponent as Dogs } from '../Assets/dog.svg';
+//import { UserContext } from '../UserContext';
 
 const header = () => {
- 
+  //const context = React.UseContext(UserContext);
+  //console.log(context);
   return (
     <header className={Styles.header}>
       <nav className={`${Styles.nav} Container`}>
@@ -12,7 +14,7 @@ const header = () => {
           <Dogs />
         </Link>
         <Link className={Styles.Login} to="/login">
-          
+        
           Login / Criar
         </Link>
       </nav>

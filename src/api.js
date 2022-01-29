@@ -1,26 +1,28 @@
-export const API_URL = 'http://dogsapi.origamid.dev/json'
+export const API_URL = 'https://dogsapi.origamid.dev/json';
 
 export function TOKEN_POST(body) {
-  return{
-    url: API_URL + '/jwt-auth/v1/token',
-    opition:{
+  return {
+    URL: API_URL + '/jwt-auth/v1/token',
+    Option: {
+      credentials: 'include',
       method: 'POST',
       headers: {
-        'content-type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
     },
-  }
+  };
 }
 
 export function USER_GET(token) {
-  return{
-    url: API_URL + '/api/user',
-    opition:{
+  return {
+    URL: API_URL + '/api/user',
+    Option: {
+      credentials: 'include',
       method: 'GET',
       headers: {
-       Authorization:'Bearer ' + token,
+        Authorization: 'Bearer ' + token,
       },
     },
-  }
+  };
 }
