@@ -4,14 +4,23 @@ import Input from '../forms/input';
 import Button from '../forms/button';
 import UseForm from '../../Hooks/useForm';
 import { TOKEN_POST, USER_GET } from '../../api';
+import erro from '../helper/erro';
+import Styles from './loginForm.module.css';
+import StylesBTN from '../forms/button.module.css'
+
+//import {userContext} from '../../userContext'
 
 const loginForm = () => {
   const username = UseForm();
   const password = UseForm();
+  //const context = react.userContext(userContext);
+  //console.log(context);
+
+  //const {userLogin} = react.userContext(userContext);
 
   react.useEffect(() => {
     const token = window.localStorage.getItem('token');
-    if(token){
+    if (token) {
       getUser(token);
     }
   }, []);
@@ -39,17 +48,25 @@ const loginForm = () => {
     }
   }
   return (
-    <section>
-      <h1>Login</h1>
-      <form action="" onSubmit={handleSubmit}>
+    <section className="animeLeft">
+      <h1 className="title">Login</h1>
+      <form className={Styles.form} onSubmit={handleSubmit}>
         <Input label="Usuario" type="text" name="username" {...username} />
         <Input label="Password" type="password" name="password" {...password} />
 
         <Button>entrar</Button>
+        <erro erro={erro} />
       </form>
-      <Button>
-        <Link to="/login/criar">cadastro</Link>
-      </Button>
+      <Link className={Styles.perdeu} to="/login/perdeu">
+        perdeu a senha?
+      </Link>
+      <div className={Styles.cadastro}>
+        <h2 className={Styles.subtitle}>Cadastre-se </h2>
+        <p>ainda não possui conta</p>
+        <Link className={StylesBTN.button} to='/login/criar'>
+          cadastro
+        </Link>
+      </div>
     </section>
   );
 };

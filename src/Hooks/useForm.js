@@ -3,8 +3,12 @@ const types = {
   email:{
     Regex:/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ,
     message: 'please, fill in correct email address'
-  }
-
+  },
+password: {
+  regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+  ,
+  messege: 'A senha precisa ter 1 caracter maiusculo, 1 minusculo e 1 digito. com no minimo 8 caracteres'
+},
 }
 const useForm = (type) => {
   const [value, setValue] = React.useState('');
