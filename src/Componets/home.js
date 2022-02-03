@@ -1,7 +1,10 @@
 import React from 'react';
+import Feed from './feed/feed';
 
 const home = () => {
-  return <div>home</div>;
+  return <section className="Container  maincontainer">
+    <Feed />
+  </section>;
 };
 
 export default home;
