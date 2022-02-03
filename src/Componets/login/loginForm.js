@@ -1,10 +1,10 @@
-import react from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Input from '../forms/input';
 import Button from '../forms/button';
 import UseForm from '../../Hooks/useForm';
 import { TOKEN_POST, USER_GET } from '../../api';
-import erro from '../helper/erro';
+import erro from '../helper/Erro';
 import Styles from './loginForm.module.css';
 import StylesBTN from '../forms/button.module.css'
 
@@ -18,12 +18,12 @@ const loginForm = () => {
 
   //const {userLogin} = react.userContext(userContext);
 
-  react.useEffect(() => {
-    const token = window.localStorage.getItem('token');
-    if (token) {
-      getUser(token);
-    }
-  }, []);
+  //react.useEffect(() => {
+    //onst token = window.localStorage.getItem('token');
+    //if (token) {
+     // getUser(token);
+    //}
+ // }, []);
 
   async function getUser(token) {
     const { URL, Option } = USER_GET(token);
@@ -34,7 +34,7 @@ const loginForm = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-
+    
     if (username.validate() && password.validate()) {
       const { URL, Option } = TOKEN_POST({
         username: username.value,

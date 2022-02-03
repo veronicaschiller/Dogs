@@ -1,7 +1,7 @@
 import react from 'react';
 import Input from '../forms/input';
 import Button from '../forms/button';
-import Erro from '../helper/erro'
+import Erro from '../helper/Erro'
 import UseForm from '../../Hooks/useForm';
 import { USER_POST } from '../../api';
 import { UserContext } from '../../UserContext';
@@ -13,7 +13,7 @@ const loginCreate = () => {
   const password = UseForm('password');
 
   const { userLogin } = react.useContext(UserContext);
-  const { loading, erro, request } = UseFetch();
+  const { loading, Error, request } = UseFetch();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -37,7 +37,7 @@ const loginCreate = () => {
 
         <Button>cadastrar</Button>
         )}
-        <Erro erro={erro}/>
+        <Erro erro={Error}/>
       </form> 
     </section>
   );

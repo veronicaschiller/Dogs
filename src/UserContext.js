@@ -3,7 +3,7 @@ import { TOKEN_POST, USER_GET, TOKEN_VALIDATE_POST } from './api';
 //import { UseNavigate } from 'react-router-dom';
 
 export const UserContext = react.createContext(true);
-export const userStorage = ({ children }) => {
+export const UserStorage = ({ children }) => {
   const [data, setData] = react.useState(null);
   const [login, setLogin] = react.useState(null);
   const [loading, setLoading] = react.useState(false);
@@ -23,6 +23,8 @@ export const userStorage = ({ children }) => {
         } finally {
           setLoading(false);
         }
+      }else{
+        setLoading(false);
       }
     }
     autoLogin();
@@ -55,21 +57,18 @@ export const userStorage = ({ children }) => {
     }
   }
 
-  const userlogout = react.useCallback(
-    async function userlogout() {
-      setData(null);
-      setErro(null);
-      setLoading(false);
-      setLogin(false);
-     // window.localStorage.removeItem(token);
-     // navigate('/login');
-    },
-    [],
-  );
+  const userlogout = react.useCallback(async function userlogout() {
+    setData(null);
+    setErro(null);
+    setLoading(false);
+    setLogin(false);
+    // window.localStorage.removeItem(token);
+    // navigate('/login');
+  }, []);
 
-  return ( 
+  return (
     <UserContext.Provider
-      value={{ userLogin, userlogout, data, Error, loading, login }}
+      value={{ userLogin, userlogout, data, Error, loading, login , usuario: 'andre'}}
     >
       {children}
     </UserContext.Provider>

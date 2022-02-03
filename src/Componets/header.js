@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Styles from './header.module.css';
 import { ReactComponent as Dogs } from '../Assets/dog.svg';
-//import { UserContext } from '../userContext';
+//import { UserContext } from '../UserContext';
 
 const header = () => {
+  //const usuario = React.UserContext(UserContext);
+ // console.log(usuario)
 //const {data} = React.UserContext(UserContext);
 
   return (

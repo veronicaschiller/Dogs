@@ -1,10 +1,11 @@
 import React from 'react';
-import { UserContext } from '../../UserContext';
-import { Navigate } from 'react-router-dom';
+//import { UserContext } from '../../UserContext';
+//import { Navigate } from 'react-router-dom';
 
 const protectedRoute = () => {
-  const { login } = React.userContext(UserContext);
-  return login ? <div></div> : <Navigate to="login/" />;
+  //const { login } = React.userContext(UserContext);
+  //return login ? <div></div> : <Navigate to="login/" />;
+  return <div></div>;
 };
 
 export default protectedRoute;

@@ -34,7 +34,7 @@ img {
 
 button, input{
   display: block;
-font-size:3rem;
+font-size:20px;
 font-family: var(--type-first);
 color: #333;
 }

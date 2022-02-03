@@ -9,7 +9,12 @@ password: {
   ,
   messege: 'A senha precisa ter 1 caracter maiusculo, 1 minusculo e 1 digito. com no minimo 8 caracteres'
 },
-}
+
+number: {
+  regex: /^\d+$/ ,
+  messege: 'use number'
+},
+};
 const useForm = (type) => {
   const [value, setValue] = React.useState('');
   const [Erro, setErro] = React.useState('');
